@@ -1,0 +1,33 @@
+{
+  "name": "i18n-spreadsheet",
+  "version": "1.0.0",
+  "description": "i18n Spreadsheet",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siwonia/i18n-spreadsheet.git"
+  },
+  "keywords": [
+    "i18n"
+  ],
+  "author": "Tobias Siwonia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siwonia/i18n-spreadsheet/issues"
+  },
+  "homepage": "https://github.com/siwonia/i18n-spreadsheet#readme",
+  "dependencies": {
+    "googleapis": "^122.0.0",
+    "prettier": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.44.0"
+  }
+}

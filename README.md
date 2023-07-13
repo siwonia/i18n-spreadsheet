@@ -1,2 +1,6 @@
-# i18n-spreadsheet
-i18n Spreadsheet
+# i18n Spreadsheet
+
+## Development
+
+- `$ npm i` - install npm packages
+- `$ npm run lint` - run linter
