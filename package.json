@@ -1,6 +1,6 @@
 {
   "name": "i18n-spreadsheet",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "i18n Spreadsheet",
   "main": "index.ts",
   "scripts": {
