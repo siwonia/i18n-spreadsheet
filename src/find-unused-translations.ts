@@ -11,8 +11,6 @@ const rootPath = __dirname.split("/").slice(0, -1).join("/");
 const directoryPath = path.normalize(`${rootPath}/${DIRECTORY_PATH}`);
 const translationsPath = path.normalize(`${rootPath}/${TYPE_FILE}`);
 
-console.log({ directoryPath, translationsPath });
-
 function getFilesInDirectory(directory: string): string[] {
   const fileContents: string[] = [];
 
