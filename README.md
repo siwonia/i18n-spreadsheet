@@ -15,7 +15,8 @@ Add script to your `package.json`:
 {
   "scripts": {
     ...
-    "translations": "API_KEY=foo SPREADSHEET_ID=bar TYPE_FILE=src/translations.ts TRANSLATION_FILE=locales/{LANGUAGE_CODE}/common.json npm run --prefix node_modules/i18n-spreadsheet generate-translations",
+    "translations": "API_KEY=foo SPREADSHEET_ID=bar TYPE_FILE=../../src/translations.ts TRANSLATION_FILE=../../locales/{LANGUAGE_CODE}/common.json npm run --prefix node_modules/i18n-spreadsheet generate-translations",
+    "unused-translations": "DIRECTORY_PATH=src TYPE_FILE=translations.ts npm run find-unused-translations",
   },
   ...
 }

@@ -1,6 +1,12 @@
 import fs from "fs";
 import path from "path";
 
+const DIRECTORY_PATH = process.env.DIRECTORY_PATH || "";
+const TYPE_FILE = process.env.TYPE_FILE || "";
+
+if (!DIRECTORY_PATH) throw new Error("DIRECTORY_PATH is not defined.");
+if (!TYPE_FILE) throw new Error("TYPE_FILE is not defined.");
+
 function getFilesInDirectory(directory: string): string[] {
   const fileContents: string[] = [];
 
@@ -26,8 +32,11 @@ function getFilesInDirectory(directory: string): string[] {
   return fileContents;
 }
 
-const directoryPath = `${__dirname.split("/").slice(0, -1).join("/")}/src`;
-const translationsPath = `${directoryPath}/Translation/translations.ts`;
+const directoryPath = `${__dirname
+  .split("/")
+  .slice(0, -1)
+  .join("/")}/${DIRECTORY_PATH}`;
+const translationsPath = `${directoryPath}/${TYPE_FILE}`;
 const translationsContent = fs.readFileSync(translationsPath, "utf-8");
 
 const translationsContentLines = translationsContent

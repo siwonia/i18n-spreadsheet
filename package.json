@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "generate-translations": "ts-node src/generate-translations.ts",
-    "unused-translations": "ts-node scripts/find-unused-translations.ts",
+    "find-unused-translations": "ts-node src/find-unused-translations.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "release": "npm version patch && npm publish"
