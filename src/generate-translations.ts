@@ -2,8 +2,8 @@ import fs from "fs/promises";
 import { google } from "googleapis";
 import prettier from "prettier";
 
-const API_KEY = "TODO";
-const SPREADSHEET_ID = "TODO";
+const API_KEY = process.env.API_KEY || "MISSING_API_KEY";
+const SPREADSHEET_ID = process.env.SPREADSHEET_ID || "MISSING_SPREADSHEET_ID";
 
 const sheets = google.sheets({
   version: "v4",
