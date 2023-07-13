@@ -7,6 +7,12 @@ const TYPE_FILE = process.env.TYPE_FILE || "";
 if (!DIRECTORY_PATH) throw new Error("DIRECTORY_PATH is not defined.");
 if (!TYPE_FILE) throw new Error("TYPE_FILE is not defined.");
 
+const rootPath = __dirname.split("/").slice(0, -1).join("/");
+const directoryPath = path.normalize(`${rootPath}/${DIRECTORY_PATH}`);
+const translationsPath = path.normalize(`${rootPath}/${TYPE_FILE}`);
+
+console.log({ directoryPath, translationsPath });
+
 function getFilesInDirectory(directory: string): string[] {
   const fileContents: string[] = [];
 
@@ -31,12 +37,6 @@ function getFilesInDirectory(directory: string): string[] {
 
   return fileContents;
 }
-
-const rootPath = __dirname.split("/").slice(0, -1).join("/");
-const directoryPath = `${rootPath}/${DIRECTORY_PATH}`;
-const translationsPath = `${rootPath}/${TYPE_FILE}`;
-
-console.log({ directoryPath, translationsPath });
 
 const translationsContent = fs.readFileSync(translationsPath, "utf-8");
 const translationsContentLines = translationsContent

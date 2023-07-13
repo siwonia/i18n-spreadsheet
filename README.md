@@ -26,4 +26,5 @@ Add script to your `package.json`:
 
 ```
 npm run translations
+npm run unused-translations
 ```
