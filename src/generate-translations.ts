@@ -2,8 +2,15 @@ import fs from "fs/promises";
 import { google } from "googleapis";
 import prettier from "prettier";
 
-const API_KEY = process.env.API_KEY || "MISSING_API_KEY";
-const SPREADSHEET_ID = process.env.SPREADSHEET_ID || "MISSING_SPREADSHEET_ID";
+const API_KEY = process.env.API_KEY || "";
+const SPREADSHEET_ID = process.env.SPREADSHEET_ID || "";
+const TYPE_FILE = process.env.TYPE_FILE || "";
+const TRANSLATION_FILE = process.env.TRANSLATION_FILE || "";
+
+if (!API_KEY) throw new Error("API_KEY is not defined.");
+if (!SPREADSHEET_ID) throw new Error("SPREADSHEET_ID is not defined.");
+if (!TYPE_FILE) throw new Error("TYPE_FILE is not defined.");
+if (!TRANSLATION_FILE) throw new Error("TRANSLATION_FILE is not defined.");
 
 const sheets = google.sheets({
   version: "v4",
@@ -51,7 +58,7 @@ async function generateTranslations() {
   content += ";\n";
   content = await prettier.format(content, { parser: "typescript" });
 
-  await fs.writeFile("src/Translation/translations.ts", content);
+  await fs.writeFile(TYPE_FILE, content);
 
   for (const [languageIndex, language] of languages.entries()) {
     const json: Record<string, string> = {};
@@ -61,7 +68,7 @@ async function generateTranslations() {
     }
 
     await fs.writeFile(
-      `public/locales/${language}/common.json`,
+      TRANSLATION_FILE.replace("{LANGUAGE_CODE}", language),
       JSON.stringify(json, null, 2) + "\n"
     );
   }
