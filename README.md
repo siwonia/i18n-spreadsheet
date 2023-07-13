@@ -1,6 +1,10 @@
 # i18n Spreadsheet
 
-## Development
+## Installation
 
-- `$ npm i` - install npm packages
-- `$ npm run lint` - run linter
+```
+npm i i18n-spreadsheet --save-dev
+yarn add i18n-spreadsheet -D
+```
+
+## Setup
