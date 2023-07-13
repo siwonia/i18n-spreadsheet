@@ -32,13 +32,13 @@ function getFilesInDirectory(directory: string): string[] {
   return fileContents;
 }
 
-const directoryPath = `${__dirname
-  .split("/")
-  .slice(0, -1)
-  .join("/")}/${DIRECTORY_PATH}`;
-const translationsPath = `${directoryPath}/${TYPE_FILE}`;
-const translationsContent = fs.readFileSync(translationsPath, "utf-8");
+const rootPath = __dirname.split("/").slice(0, -1).join("/");
+const directoryPath = `${rootPath}/${DIRECTORY_PATH}`;
+const translationsPath = `${rootPath}/${TYPE_FILE}`;
 
+console.log({ directoryPath, translationsPath });
+
+const translationsContent = fs.readFileSync(translationsPath, "utf-8");
 const translationsContentLines = translationsContent
   .split("\n")
   // Remove first line: `export type TranslationKey =`
