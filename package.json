@@ -4,9 +4,14 @@
   "description": "i18n Spreadsheet",
   "main": "index.ts",
   "scripts": {
+    "generate-translations": "ts-node --compiler-options='{\"module\":\"commonjs\"}' src/generate-translations.ts",
+    "unused-translations": "ts-node --compiler-options='{\"module\":\"commonjs\"}' scripts/find-unused-translations.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "release": "npm version patch && npm publish && git push --follow-tags"
+    "release": "npm version patch && npm publish"
+  },
+  "exports": {
+    ".": "./src/generate-translations.ts"
   },
   "repository": {
     "type": "git",
@@ -23,7 +28,8 @@
   "homepage": "https://github.com/siwonia/i18n-spreadsheet#readme",
   "dependencies": {
     "googleapis": "^122.0.0",
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.0",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/node": "^20.4.2",
